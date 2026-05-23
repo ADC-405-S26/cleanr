@@ -2,16 +2,16 @@
 
 ## Authors
 
-- **Your Name**. Author, maintainer.
+- **Tahana Akram**. Author, maintainer.
 
 ## Citation
 
-Name Y (2026). *cleanr: Tools for Data Cleaning and Validation*. R
+Akram T (2026). *cleanr: Tools for Data Cleaning and Validation*. R
 package version 0.1.0.
 
     @Manual{,
       title = {cleanr: Tools for Data Cleaning and Validation},
-      author = {Your Name},
+      author = {Tahana Akram},
       year = {2026},
       note = {R package version 0.1.0},
     }
