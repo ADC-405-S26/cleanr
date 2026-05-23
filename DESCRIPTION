@@ -2,7 +2,7 @@ Package: cleanr
 Title: Tools for Data Cleaning and Validation
 Version: 0.1.0
 Authors@R: 
-    person("Your", "Name", email = "you@lawrence.edu", role = c("aut", "cre"))
+    person("Tahana", "Akram", email = "tahana.akram@lawrence.edu", role = c("aut", "cre"))
 Description: Provides simple helper functions for common data cleaning tasks
     including summarizing missing values, standardizing column names,
     and removing outliers from numeric columns.
