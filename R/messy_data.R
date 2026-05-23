@@ -1,0 +1,15 @@
+#' Messy Sample Dataset
+#'
+#' A small intentionally messy data frame used to demonstrate the functions
+#' in the cleanr package. It contains missing values, extreme outliers in
+#' age (years) and salary (USD), making it ideal for practicing data cleaning.
+#'
+#' @format A data frame with 5 rows and 4 columns:
+#' \describe{
+#'   \item{first_name}{Character. First name of the person. Contains one NA.}
+#'   \item{last_name}{Character. Last name of the person. Contains one NA.}
+#'   \item{age}{Numeric. Age in years. Contains one extreme outlier (300) and one NA.}
+#'   \item{salary}{Numeric. Annual salary in USD. Contains one extreme outlier (1,000,000,000).}
+#' }
+#' @source Simulated data created for the cleanr package.
+"messy_data"

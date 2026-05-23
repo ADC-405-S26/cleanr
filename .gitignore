@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inst/doc
+cleanr.Rcheck/
+cleanr*.tar.gz
+cleanr*.tgz
+docs

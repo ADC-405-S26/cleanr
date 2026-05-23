@@ -1,0 +1,13 @@
+^project\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^cleanr\.Rcheck$
+^cleanr.*\.tar\.gz$
+^cleanr.*\.tgz$
+^cleanr\.Rproj$
+^data-raw$
+^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

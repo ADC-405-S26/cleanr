@@ -1,0 +1,24 @@
+Package: cleanr
+Title: Tools for Data Cleaning and Validation
+Version: 0.1.0
+Authors@R: 
+    person("Your", "Name", email = "you@lawrence.edu", role = c("aut", "cre"))
+Description: Provides simple helper functions for common data cleaning tasks
+    including summarizing missing values, standardizing column names,
+    and removing outliers from numeric columns.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    checkmate,
+    stats
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0
+Depends: 
+    R (>= 3.5)
+LazyData: true
