@@ -1,0 +1,42 @@
+# cleanr
+
+cleanr is an R package that provides simple helper functions for common
+data cleaning tasks. It helps you summarize missing values, standardize
+messy column names, and remove outliers from numeric columns.
+
+## Installation
+
+``` r
+
+remotes::install_github("ADC-405-S26/cleanr")
+```
+
+## Example
+
+``` r
+
+library(cleanr)
+
+# See missing values
+describe_na(messy_data)
+#>     variable n_missing pct_missing
+#> 1 first_name         1          20
+#> 2  last_name         1          20
+#> 3        age         1          20
+#> 4     salary         0           0
+
+# Clean column names
+df <- data.frame("First Name" = 1, "Last-Name!" = 2, check.names = FALSE)
+standardize_names(df)
+#>   first_name last_name
+#> 1          1         2
+
+# Remove outliers
+df2 <- data.frame(x = c(1, 2, 3, 4, 100))
+remove_outliers(df2, col = "x", method = "iqr")
+#>   x
+#> 1 1
+#> 2 2
+#> 3 3
+#> 4 4
+```
