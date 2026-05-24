@@ -14,14 +14,11 @@ library(cleanr)
 
 ## Why cleanr?
 
-When you first open a real dataset, you almost always run into the same
-problems: missing values, messy column names, and weird extreme numbers.
-cleanr gives you three simple functions to deal with all of that quickly.
+When you first open a real dataset, you almost always run into the same problems: missing values, messy column names, and weird extreme numbers. cleanr gives you three simple functions to deal with all of that quickly.
 
 ## The Sample Dataset
 
-cleanr comes with a built-in dataset called `messy_data` that has all
-three problems so you can practice.
+cleanr comes with a built-in dataset called `messy_data` that has all three problems so you can practice.
 
 ```{r}
 messy_data
@@ -54,7 +51,7 @@ clean <- remove_outliers(messy_data, col = "salary", method = "iqr")
 clean
 ```
 
-## Full Workflow in One Go
+## Full Workflow 
 
 ```{r}
 result <- messy_data |>

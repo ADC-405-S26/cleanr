@@ -17,7 +17,7 @@ A data frame with 5 rows and 4 columns:
 Simulated data created for the cleanr package.
 }
 \usage{
-messy_data
+data(messy_data)
 }
 \description{
 A small intentionally messy data frame used to demonstrate the functions
