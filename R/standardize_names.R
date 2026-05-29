@@ -1,7 +1,8 @@
 #' Standardize Column Names of a Data Frame
 #'
 #' Makes all column names lowercase and replaces spaces and special characters
-#' with underscores.
+#' with underscores. Similar to janitor::clean_names() but lightweight with
+#' no additional dependencies required.
 #'
 #' @param df A data frame with messy column names.
 #'

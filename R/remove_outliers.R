@@ -1,7 +1,9 @@
 #' Remove Outliers from a Numeric Column
 #'
 #' Removes rows where a numeric column has extreme values, using either
-#' the IQR method or the Z-score method.
+#' the IQR method or the Z-score method. Note: always inspect removed rows
+#' before discarding them, as extreme values may be data entry errors
+#' rather than true outliers.
 #'
 #' @param df A data frame.
 #' @param col The name of the numeric column to check (as a string).

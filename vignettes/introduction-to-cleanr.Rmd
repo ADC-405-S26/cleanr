@@ -51,7 +51,7 @@ clean <- remove_outliers(messy_data, col = "salary", method = "iqr")
 clean
 ```
 
-## Full Workflow 
+## Full Workflow in One Go
 
 ```{r}
 result <- messy_data |>

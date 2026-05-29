@@ -2,7 +2,7 @@ Package: cleanr
 Title: Tools for Data Cleaning and Validation
 Version: 0.1.0
 Authors@R: 
-    person("Tahana", "Akram", email = "akramt24@lawrence.edu", role = c("aut", "cre"))
+    person("Tahana", "Akram", email = "akramt@lawrence.edu", role = c("aut", "cre"))
 Description: Provides simple helper functions for common data cleaning tasks
     including summarizing missing values, standardizing column names,
     and removing outliers from numeric columns.
@@ -19,3 +19,7 @@ Suggests:
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0
+Depends: 
+    R (>= 3.5)
+LazyData: true
+URL: https://adc-405-s26.github.io/cleanr/
