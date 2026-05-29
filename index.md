@@ -1,8 +1,9 @@
 # cleanr
 
-cleanr is an R package that provides simple helper functions for common
-data cleaning tasks. It helps you summarize missing values, standardize
-messy column names, and remove outliers from numeric columns.
+cleanr is an R package that provides simple, lightweight helper
+functions for common data cleaning tasks. It is designed for anyone who
+works with messy real-world datasets and wants quick, reliable tools to
+understand and clean their data before analysis.
 
 ## Installation
 
@@ -11,13 +12,33 @@ messy column names, and remove outliers from numeric columns.
 remotes::install_github("ADC-405-S26/cleanr")
 ```
 
+## Functions
+
+cleanr has three main functions:
+
+- [`describe_na()`](https://adc-405-s26.github.io/cleanr/reference/describe_na.md)
+  — summarizes missing values in each column of a data frame, showing
+  the count and percentage of NAs. Use this as your first step when
+  exploring a new dataset.
+
+- [`standardize_names()`](https://adc-405-s26.github.io/cleanr/reference/standardize_names.md)
+  — converts all column names to lowercase snake_case by replacing
+  spaces and special characters with underscores. This makes column
+  names safe to use in R without backticks.
+
+- [`remove_outliers()`](https://adc-405-s26.github.io/cleanr/reference/remove_outliers.md)
+  — removes rows where a numeric column contains extreme values, using
+  either the IQR fence method or the Z-score method. Note: always
+  inspect removed rows before discarding, as extreme values may be data
+  entry errors rather than true outliers.
+
 ## Example
 
 ``` r
 
 library(cleanr)
 
-# See missing values
+# Step 1: See where the missing values are
 describe_na(messy_data)
 #>     variable n_missing pct_missing
 #> 1 first_name         1          20
@@ -25,13 +46,13 @@ describe_na(messy_data)
 #> 3        age         1          20
 #> 4     salary         0           0
 
-# Clean column names
+# Step 2: Clean the column names
 df <- data.frame("First Name" = 1, "Last-Name!" = 2, check.names = FALSE)
 standardize_names(df)
 #>   first_name last_name
 #> 1          1         2
 
-# Remove outliers
+# Step 3: Remove outliers from a numeric column
 df2 <- data.frame(x = c(1, 2, 3, 4, 100))
 remove_outliers(df2, col = "x", method = "iqr")
 #>   x
@@ -40,3 +61,9 @@ remove_outliers(df2, col = "x", method = "iqr")
 #> 3 3
 #> 4 4
 ```
+
+## Dataset
+
+cleanr includes a built-in dataset called `messy_data`, a small data
+frame with missing values and an extreme salary outlier, designed to
+help you practice all three functions right away.

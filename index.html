@@ -53,7 +53,7 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="cleanr">cleanr<a class="anchor" aria-label="anchor" href="#cleanr"></a>
 </h1></div>
-<p>cleanr is an R package that provides simple helper functions for common data cleaning tasks. It helps you summarize missing values, standardize messy column names, and remove outliers from numeric columns.</p>
+<p>cleanr is an R package that provides simple, lightweight helper functions for common data cleaning tasks. It is designed for anyone who works with messy real-world datasets and wants quick, reliable tools to understand and clean their data before analysis.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -61,12 +61,22 @@
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"ADC-405-S26/cleanr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
+<p>cleanr has three main functions:</p>
+<ul>
+<li><p><code><a href="reference/describe_na.html">describe_na()</a></code> — summarizes missing values in each column of a data frame, showing the count and percentage of NAs. Use this as your first step when exploring a new dataset.</p></li>
+<li><p><code><a href="reference/standardize_names.html">standardize_names()</a></code> — converts all column names to lowercase snake_case by replacing spaces and special characters with underscores. This makes column names safe to use in R without backticks.</p></li>
+<li><p><code><a href="reference/remove_outliers.html">remove_outliers()</a></code> — removes rows where a numeric column contains extreme values, using either the IQR fence method or the Z-score method. Note: always inspect removed rows before discarding, as extreme values may be data entry errors rather than true outliers.</p></li>
+</ul>
+</div>
+<div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cleanr</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://adc-405-s26.github.io/cleanr/">cleanr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># See missing values</span></span>
+<span><span class="co"># Step 1: See where the missing values are</span></span>
 <span><span class="fu"><a href="reference/describe_na.html">describe_na</a></span><span class="op">(</span><span class="va">messy_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     variable n_missing pct_missing</span></span>
 <span><span class="co">#&gt; 1 first_name         1          20</span></span>
@@ -74,13 +84,13 @@
 <span><span class="co">#&gt; 3        age         1          20</span></span>
 <span><span class="co">#&gt; 4     salary         0           0</span></span>
 <span></span>
-<span><span class="co"># Clean column names</span></span>
+<span><span class="co"># Step 2: Clean the column names</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="st">"First Name"</span> <span class="op">=</span> <span class="fl">1</span>, <span class="st">"Last-Name!"</span> <span class="op">=</span> <span class="fl">2</span>, check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/standardize_names.html">standardize_names</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   first_name last_name</span></span>
 <span><span class="co">#&gt; 1          1         2</span></span>
 <span></span>
-<span><span class="co"># Remove outliers</span></span>
+<span><span class="co"># Step 3: Remove outliers from a numeric column</span></span>
 <span><span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/remove_outliers.html">remove_outliers</a></span><span class="op">(</span><span class="va">df2</span>, col <span class="op">=</span> <span class="st">"x"</span>, method <span class="op">=</span> <span class="st">"iqr"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   x</span></span>
@@ -88,6 +98,11 @@
 <span><span class="co">#&gt; 2 2</span></span>
 <span><span class="co">#&gt; 3 3</span></span>
 <span><span class="co">#&gt; 4 4</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="dataset">Dataset<a class="anchor" aria-label="anchor" href="#dataset"></a>
+</h2>
+<p>cleanr includes a built-in dataset called <code>messy_data</code>, a small data frame with missing values and an extreme salary outlier, designed to help you practice all three functions right away.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
